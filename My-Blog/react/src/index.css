@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat+Alternates&display=swap');
+
+
+body{
+  font-family: 'Bebas Neue', sans-serif; 
+  background-color: rgb(215, 215, 215);
+    
+}
+.root{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.my-footer{
+  margin-top: auto;
+  
+}
+
+
+.fade-enter {
+    opacity: 0;
+  }
+  
+  .fade-enter-active {
+    opacity: 1;
+    transition: opacity 200ms ease-in;
+  }
+  
+  .fade-exit {
+    opacity: 1;
+  }
+  
+  .fade-exit-active {
+    opacity: 0;
+    transition: opacity 200ms ease-out;
+  }
+  

@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+html, body{
+    font-family: 'Montserrat', sans-serif;
+}
+.hero-bg-image{
+    background: url('https://radar-bucket-prod.s3.eu-central-1.amazonaws.com/media/articles/images/121322308be0d2c6724be8951ec3cf4215ec12.jpeg');
+    background-attachment: fixed;
+    height: 600px;
+}

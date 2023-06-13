@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
+    <title>Mrv_Blog</title>
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <title></title>
+    <!-- Styles -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,300&display=swap" rel="stylesheet">
+    @vite('resources/css/app.css')
+</head>
+<body class="bg-gray-100  antialiased leading-none font-sans min-h-screen flex flex-col">
+    <div id="app">
+        <header class="bg-gray-700 py-6">
+            <div class="container mx-auto flex justify-between items-center px-6">
+                <div>
+                    <a href="{{ url('/') }}" class="text-lg font-semibold text-gray-100 no-underline">
+                       mrv_blog
+                    </a>
+                </div>
+                <nav class="space-x-4 text-gray-300 text-sm sm:text-base">
+                    
+                    @guest
+                        <a class="no-underline hover:underline" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        @if (Route::has('register'))
+                            <a class="no-underline hover:underline" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="no-underline hover:underline" href="/blog">Blog</a>
+                            
+                        @endif
+                    @else
+                    
+                        <span>{{ Auth::user()->name }}</span>
+
+                        <a href="{{ route('logout') }}"
+                           class="no-underline hover:underline"
+                           onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="hidden">
+                            {{ csrf_field() }}
+                        </form>
+                    @endguest
+                </nav>
+            </div>
+        </header>
+        <div>
+            @yield('content')
+        </div>
+        <div>
+            @include('layouts.footer')
+        </div>
+        
+    </div>
+</body>
+</html>
